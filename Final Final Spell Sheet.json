@@ -1,6 +1,6 @@
 [
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Acid Splash",
    "School": "Conjuration",
    "Ritual": "No",
@@ -26,7 +26,7 @@
    "Effect": "No"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Blade Ward",
    "School": "Abjuration",
    "Ritual": "No",
@@ -52,7 +52,7 @@
    "Effect": "Resistance"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Chill Touch",
    "School": "Necromancy",
    "Ritual": "No",
@@ -78,7 +78,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Dancing Lights",
    "School": "Evocation",
    "Ritual": "No",
@@ -104,7 +104,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Fire Bolt",
    "School": "Evocation",
    "Ritual": "No",
@@ -130,7 +130,7 @@
    "Effect": "No"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Friends",
    "School": "Enchantment",
    "Ritual": "No",
@@ -156,7 +156,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Light",
    "School": "Evocation",
    "Ritual": "No",
@@ -182,7 +182,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Mage Hand",
    "School": "Conjuration",
    "Ritual": "No",
@@ -208,7 +208,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Mending",
    "School": "Transmutation",
    "Ritual": "No",
@@ -234,7 +234,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Message",
    "School": "Transmutation",
    "Ritual": "No",
@@ -260,7 +260,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Minor Illusion",
    "School": "Illusion",
    "Ritual": "No",
@@ -286,7 +286,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Poison Spray",
    "School": "Conjuration",
    "Ritual": "No",
@@ -312,7 +312,7 @@
    "Effect": "No"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Prestidigitation",
    "School": "Transmutation",
    "Ritual": "No",
@@ -338,7 +338,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Ray of Frost",
    "School": "Evocation",
    "Ritual": "No",
@@ -364,7 +364,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "Shocking Grasp",
    "School": "Evocation",
    "Ritual": "No",
@@ -390,7 +390,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 0,
+   "Level": "0",
    "Name": "True Strike",
    "School": "Divination",
    "Ritual": "No",
@@ -416,7 +416,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Alarm",
    "School": "Abjuration",
    "Ritual": "Yes",
@@ -442,7 +442,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Burning Hands",
    "School": "Evocation",
    "Ritual": "No",
@@ -468,7 +468,7 @@
    "Effect": "No"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Charm Person",
    "School": "Enchantment",
    "Ritual": "No",
@@ -494,7 +494,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Chromatic Orb",
    "School": "Evocation",
    "Ritual": "No",
@@ -520,7 +520,7 @@
    "Effect": "No"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Color Spray",
    "School": "Illusion",
    "Ritual": "No",
@@ -546,7 +546,7 @@
    "Effect": "Blinded"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Comprehend Languages",
    "School": "Divination",
    "Ritual": "Yes",
@@ -572,7 +572,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Detect Magic",
    "School": "Divination",
    "Ritual": "Yes",
@@ -598,7 +598,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Disguise Self",
    "School": "Illusion",
    "Ritual": "No",
@@ -624,7 +624,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Expeditious Retreat",
    "School": "Transmutation",
    "Ritual": "No",
@@ -650,7 +650,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "False Life",
    "School": "Necromancy",
    "Ritual": "No",
@@ -676,7 +676,7 @@
    "Effect": "Healing/Antidote"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Feather Fall",
    "School": "Transmutation",
    "Ritual": "No",
@@ -702,7 +702,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Find Familiar",
    "School": "Conjuration",
    "Ritual": "Yes",
@@ -728,7 +728,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Fog Cloud",
    "School": "Conjuration",
    "Ritual": "No",
@@ -754,7 +754,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Grease",
    "School": "Conjuration",
    "Ritual": "No",
@@ -780,7 +780,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Identify",
    "School": "Divination",
    "Ritual": "Yes",
@@ -806,7 +806,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Illusory Script",
    "School": "Illusion",
    "Ritual": "Yes",
@@ -832,7 +832,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Jump",
    "School": "Transmutation",
    "Ritual": "No",
@@ -858,7 +858,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Longstrider",
    "School": "Transmutation",
    "Ritual": "No",
@@ -884,7 +884,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Mage Armor",
    "School": "Abjuration",
    "Ritual": "No",
@@ -910,7 +910,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Magic Missile",
    "School": "Evocation",
    "Ritual": "No",
@@ -936,7 +936,7 @@
    "Effect": "No"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Protection from Evil and Good",
    "School": "Abjuration",
    "Ritual": "No",
@@ -962,7 +962,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Ray of Sickness",
    "School": "Necromancy",
    "Ritual": "No",
@@ -988,7 +988,7 @@
    "Effect": "Poisoned"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Shield",
    "School": "Abjuration",
    "Ritual": "No",
@@ -1014,7 +1014,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Silent Image",
    "School": "Illusion",
    "Ritual": "No",
@@ -1040,7 +1040,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Sleep",
    "School": "Enchantment",
    "Ritual": "No",
@@ -1066,7 +1066,7 @@
    "Effect": "Unconscious"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Tasha's Hideous Laughter",
    "School": "Enchantment",
    "Ritual": "No",
@@ -1092,7 +1092,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Tenser's Floating Disk",
    "School": "Conjuration",
    "Ritual": "Yes",
@@ -1118,7 +1118,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Thunderwave",
    "School": "Evocation",
    "Ritual": "No",
@@ -1144,7 +1144,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Unseen Servant",
    "School": "Conjuration",
    "Ritual": "Yes",
@@ -1170,7 +1170,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 1,
+   "Level": "1",
    "Name": "Witch Bolt",
    "School": "Evocation",
    "Ritual": "No",
@@ -1196,7 +1196,7 @@
    "Effect": "No"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Alter Self",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1222,7 +1222,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Arcane Lock",
    "School": "Abjuration",
    "Ritual": "No",
@@ -1248,7 +1248,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Blindness/Deafness",
    "School": "Necromancy",
    "Ritual": "No",
@@ -1274,7 +1274,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Blur",
    "School": "Illusion",
    "Ritual": "No",
@@ -1300,7 +1300,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Cloud of Daggers",
    "School": "Conjuration",
    "Ritual": "No",
@@ -1326,7 +1326,7 @@
    "Effect": "No"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Continual Flame",
    "School": "Evocation",
    "Ritual": "No",
@@ -1352,7 +1352,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Crown of Madness",
    "School": "Enchantment",
    "Ritual": "No",
@@ -1378,7 +1378,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Darkness",
    "School": "Evocation",
    "Ritual": "No",
@@ -1404,7 +1404,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Darkvision",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1430,7 +1430,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Detect Thoughts",
    "School": "Divination",
    "Ritual": "No",
@@ -1456,7 +1456,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Enlarge/Reduce",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1482,7 +1482,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Flaming Sphere",
    "School": "Conjuration",
    "Ritual": "No",
@@ -1508,7 +1508,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Gentle Repose",
    "School": "Necromancy",
    "Ritual": "Yes",
@@ -1534,7 +1534,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Gust of Wind",
    "School": "Evocation",
    "Ritual": "No",
@@ -1560,7 +1560,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Hold Person",
    "School": "Enchantment",
    "Ritual": "No",
@@ -1586,7 +1586,7 @@
    "Effect": "Paralyzed"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Invisibility",
    "School": "Illusion",
    "Ritual": "No",
@@ -1612,7 +1612,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Knock",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1638,7 +1638,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Levitate",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1664,7 +1664,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Magic Mouth",
    "School": "Illusion",
    "Ritual": "Yes",
@@ -1690,7 +1690,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Magic Weapon",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1716,7 +1716,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Melf's Acid Arrow",
    "School": "Evocation",
    "Ritual": "No",
@@ -1742,7 +1742,7 @@
    "Effect": "No"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Mirror Image",
    "School": "Illusion",
    "Ritual": "No",
@@ -1768,7 +1768,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Misty Step",
    "School": "Conjuration",
    "Ritual": "No",
@@ -1794,7 +1794,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Nystul's Magic Aura",
    "School": "Illusion",
    "Ritual": "No",
@@ -1820,7 +1820,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Phantasmal Force",
    "School": "Illusion",
    "Ritual": "No",
@@ -1846,7 +1846,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Ray of Enfeeblement",
    "School": "Necromancy",
    "Ritual": "No",
@@ -1872,7 +1872,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Rope Trick",
    "School": "Transmutation",
    "Ritual": "No",
@@ -1898,7 +1898,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Scorching Ray",
    "School": "Evocation",
    "Ritual": "No",
@@ -1924,7 +1924,7 @@
    "Effect": "No"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "See Invisibility",
    "School": "Divination",
    "Ritual": "No",
@@ -1950,7 +1950,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Shatter",
    "School": "Evocation",
    "Ritual": "No",
@@ -1976,7 +1976,7 @@
    "Effect": "No"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Spider Climb",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2002,7 +2002,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Suggestion",
    "School": "Enchantment",
    "Ritual": "No",
@@ -2028,7 +2028,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 2,
+   "Level": "2",
    "Name": "Web",
    "School": "Conjuration",
    "Ritual": "No",
@@ -2054,7 +2054,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Animate Dead",
    "School": "Necromancy",
    "Ritual": "No",
@@ -2080,7 +2080,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Bestow Curse",
    "School": "Necromancy",
    "Ritual": "No",
@@ -2106,7 +2106,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Blink",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2132,7 +2132,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Clairvoyance",
    "School": "Divination",
    "Ritual": "No",
@@ -2158,7 +2158,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Counterspell",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2184,7 +2184,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Dispel Magic",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2210,7 +2210,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Fear",
    "School": "Illusion",
    "Ritual": "No",
@@ -2236,7 +2236,7 @@
    "Effect": "Frightened"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Feign Death",
    "School": "Necromancy",
    "Ritual": "Yes",
@@ -2262,7 +2262,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Fireball",
    "School": "Evocation",
    "Ritual": "No",
@@ -2288,7 +2288,7 @@
    "Effect": "No"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Fly",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2314,7 +2314,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Gaseous Form",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2340,7 +2340,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Glyph of Warding",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2366,7 +2366,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Haste",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2392,7 +2392,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Hypnotic Pattern",
    "School": "Illusion",
    "Ritual": "No",
@@ -2418,7 +2418,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Leomund's Tiny Hut",
    "School": "Evocation",
    "Ritual": "Yes",
@@ -2444,7 +2444,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Lightning Bolt",
    "School": "Evocation",
    "Ritual": "No",
@@ -2470,7 +2470,7 @@
    "Effect": "No"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Magic Circle",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2496,7 +2496,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Major Image",
    "School": "Illusion",
    "Ritual": "No",
@@ -2522,7 +2522,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Nondetection",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2548,7 +2548,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Phantom Steed",
    "School": "Illusion",
    "Ritual": "Yes",
@@ -2574,7 +2574,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Protection from Energy",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2600,7 +2600,7 @@
    "Effect": "Resistance"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Remove Curse",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2626,7 +2626,7 @@
    "Effect": "Healing/Antidote"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Sending",
    "School": "Evocation",
    "Ritual": "No",
@@ -2652,7 +2652,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Sleet Storm",
    "School": "Conjuration",
    "Ritual": "No",
@@ -2678,7 +2678,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Slow",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2704,7 +2704,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Stinking Cloud",
    "School": "Conjuration",
    "Ritual": "No",
@@ -2730,7 +2730,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Tongues",
    "School": "Divination",
    "Ritual": "No",
@@ -2756,7 +2756,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Vampiric Touch",
    "School": "Necromancy",
    "Ritual": "No",
@@ -2782,7 +2782,7 @@
    "Effect": "Healing/Antidote"
  },
  {
-   "Level": 3,
+   "Level": "3",
    "Name": "Water Breathing",
    "School": "Transmutation",
    "Ritual": "Yes",
@@ -2808,7 +2808,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Arcane Eye",
    "School": "Divination",
    "Ritual": "No",
@@ -2834,7 +2834,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Banishment",
    "School": "Abjuration",
    "Ritual": "No",
@@ -2860,7 +2860,7 @@
    "Effect": "Incapacitated"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Blight",
    "School": "Necromancy",
    "Ritual": "No",
@@ -2886,7 +2886,7 @@
    "Effect": "No"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Confusion",
    "School": "Enchantment",
    "Ritual": "No",
@@ -2912,7 +2912,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Conjure Minor Elementals",
    "School": "Conjuration",
    "Ritual": "No",
@@ -2938,7 +2938,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Control Water",
    "School": "Transmutation",
    "Ritual": "No",
@@ -2964,7 +2964,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Dimension Door",
    "School": "Conjuration",
    "Ritual": "No",
@@ -2990,7 +2990,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Evard's Black Tentacles",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3016,7 +3016,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Fabricate",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3042,7 +3042,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Fire Shield",
    "School": "Evocation",
    "Ritual": "No",
@@ -3068,7 +3068,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Greater Invisibility",
    "School": "Illusion",
    "Ritual": "No",
@@ -3094,7 +3094,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Hallucinatory Terrain",
    "School": "Illusion",
    "Ritual": "No",
@@ -3120,7 +3120,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Ice Storm",
    "School": "Evocation",
    "Ritual": "No",
@@ -3146,7 +3146,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Leomund's Secret Chest",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3172,7 +3172,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Locate Creature",
    "School": "Divination",
    "Ritual": "No",
@@ -3198,7 +3198,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Mordenkainen's Faithful Hound",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3224,7 +3224,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Mordenkainen's Private Sanctum",
    "School": "Abjuration",
    "Ritual": "No",
@@ -3250,7 +3250,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Otiluke's Resilient Sphere",
    "School": "Evocation",
    "Ritual": "No",
@@ -3276,7 +3276,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Phantasmal Killer",
    "School": "Illusion",
    "Ritual": "No",
@@ -3302,7 +3302,7 @@
    "Effect": "Frightened"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Polymorph",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3328,7 +3328,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Stone Shape",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3354,7 +3354,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Stoneskin",
    "School": "Abjuration",
    "Ritual": "No",
@@ -3380,7 +3380,7 @@
    "Effect": "Resistance"
  },
  {
-   "Level": 4,
+   "Level": "4",
    "Name": "Wall of Fire",
    "School": "Evocation",
    "Ritual": "No",
@@ -3406,7 +3406,7 @@
    "Effect": "No"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Animate Objects",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3432,7 +3432,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Bigby's Hand",
    "School": "Evocation",
    "Ritual": "No",
@@ -3458,7 +3458,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Cloudkill",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3484,7 +3484,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Cone of Cold",
    "School": "Evocation",
    "Ritual": "No",
@@ -3510,7 +3510,7 @@
    "Effect": "No"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Conjure Elemental",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3536,7 +3536,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Contact Other Plane",
    "School": "Divination",
    "Ritual": "Yes",
@@ -3562,7 +3562,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Creation",
    "School": "Illusion",
    "Ritual": "No",
@@ -3588,7 +3588,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Dominate Person",
    "School": "Enchantment",
    "Ritual": "No",
@@ -3614,7 +3614,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Dream",
    "School": "Illusion",
    "Ritual": "No",
@@ -3640,7 +3640,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Geas",
    "School": "Enchantment",
    "Ritual": "No",
@@ -3666,7 +3666,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Hold Monster",
    "School": "Enchantment",
    "Ritual": "No",
@@ -3692,7 +3692,7 @@
    "Effect": "Paralyzed"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Legend Lore",
    "School": "Divination",
    "Ritual": "No",
@@ -3718,7 +3718,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Mislead",
    "School": "Illusion",
    "Ritual": "No",
@@ -3744,7 +3744,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Modify Memory",
    "School": "Enchantment",
    "Ritual": "No",
@@ -3770,7 +3770,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Passwall",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3796,7 +3796,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Planar Binding",
    "School": "Abjuration",
    "Ritual": "No",
@@ -3822,7 +3822,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Rary's Telepathic Bond",
    "School": "Divination",
    "Ritual": "Yes",
@@ -3848,7 +3848,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Scrying",
    "School": "Divination",
    "Ritual": "No",
@@ -3874,7 +3874,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Seeming",
    "School": "Illusion",
    "Ritual": "No",
@@ -3900,7 +3900,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Telekinesis",
    "School": "Transmutation",
    "Ritual": "No",
@@ -3926,7 +3926,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Teleportation Circle",
    "School": "Conjuration",
    "Ritual": "No",
@@ -3952,7 +3952,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Wall of Force",
    "School": "Evocation",
    "Ritual": "No",
@@ -3978,7 +3978,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 5,
+   "Level": "5",
    "Name": "Wall of Stone",
    "School": "Evocation",
    "Ritual": "No",
@@ -4004,7 +4004,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Arcane Gate",
    "School": "Conjuration",
    "Ritual": "No",
@@ -4030,7 +4030,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Chain Lightning",
    "School": "Evocation",
    "Ritual": "No",
@@ -4056,7 +4056,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Circle of Death",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4082,7 +4082,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Contingency",
    "School": "Evocation",
    "Ritual": "No",
@@ -4108,7 +4108,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Create Undead",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4134,7 +4134,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Disintegrate",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4160,7 +4160,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Drawmij's Instant Summons",
    "School": "Conjuration",
    "Ritual": "Yes",
@@ -4186,7 +4186,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Eyebite",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4212,7 +4212,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Flesh to Stone",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4238,7 +4238,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Globe of Invulnerability",
    "School": "Abjuration",
    "Ritual": "No",
@@ -4264,7 +4264,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Guards and Wards",
    "School": "Abjuration",
    "Ritual": "No",
@@ -4290,7 +4290,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Magic Jar",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4316,7 +4316,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Mass Suggestion",
    "School": "Enchantment",
    "Ritual": "No",
@@ -4342,7 +4342,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Move Earth",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4368,7 +4368,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Otiluke's Freezing Sphere",
    "School": "Evocation",
    "Ritual": "No",
@@ -4394,7 +4394,7 @@
    "Effect": "Restrained"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Otto's Irresistible Dance",
    "School": "Enchantment",
    "Ritual": "No",
@@ -4420,7 +4420,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Programmed Illusion",
    "School": "Illusion",
    "Ritual": "No",
@@ -4446,7 +4446,7 @@
    "Effect": "No"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Sunbeam",
    "School": "Evocation",
    "Ritual": "No",
@@ -4472,7 +4472,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "True Seeing",
    "School": "Divination",
    "Ritual": "No",
@@ -4498,7 +4498,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 6,
+   "Level": "6",
    "Name": "Wall of Ice",
    "School": "Evocation",
    "Ritual": "No",
@@ -4524,7 +4524,7 @@
    "Effect": "No"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Delayed Blast Fireball",
    "School": "Evocation",
    "Ritual": "No",
@@ -4550,7 +4550,7 @@
    "Effect": "No"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Etherealness",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4576,7 +4576,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Finger of Death",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4602,7 +4602,7 @@
    "Effect": "No"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Forcecage",
    "School": "Evocation",
    "Ritual": "No",
@@ -4628,7 +4628,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Mirage Arcane",
    "School": "Illusion",
    "Ritual": "No",
@@ -4654,7 +4654,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Mordenkainen's Magnificent Mansion",
    "School": "Conjuration",
    "Ritual": "No",
@@ -4680,7 +4680,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Mordenkainen's Sword",
    "School": "Evocation",
    "Ritual": "No",
@@ -4706,7 +4706,7 @@
    "Effect": "No"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Plane Shift",
    "School": "Conjuration",
    "Ritual": "No",
@@ -4732,7 +4732,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Prismatic Spray",
    "School": "Evocation",
    "Ritual": "No",
@@ -4758,7 +4758,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Project Image",
    "School": "Illusion",
    "Ritual": "No",
@@ -4784,7 +4784,7 @@
    "Effect": "Information"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Reverse Gravity",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4810,7 +4810,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Sequester",
    "School": "Transmutation",
    "Ritual": "No",
@@ -4836,7 +4836,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Simulacrum",
    "School": "Illusion",
    "Ritual": "No",
@@ -4862,7 +4862,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Symbol",
    "School": "Abjuration",
    "Ritual": "No",
@@ -4888,7 +4888,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 7,
+   "Level": "7",
    "Name": "Teleport",
    "School": "Conjuration",
    "Ritual": "No",
@@ -4914,7 +4914,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Antimagic Field",
    "School": "Abjuration",
    "Ritual": "No",
@@ -4940,7 +4940,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Antipathy/Sympathy",
    "School": "Enchantment",
    "Ritual": "No",
@@ -4966,7 +4966,7 @@
    "Effect": "Frightened"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Clone",
    "School": "Necromancy",
    "Ritual": "No",
@@ -4992,7 +4992,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Control Weather",
    "School": "Transmutation",
    "Ritual": "No",
@@ -5018,7 +5018,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Demiplane",
    "School": "Conjuration",
    "Ritual": "No",
@@ -5044,7 +5044,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Dominate Monster",
    "School": "Enchantment",
    "Ritual": "No",
@@ -5070,7 +5070,7 @@
    "Effect": "Charmed"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Feeblemind",
    "School": "Enchantment",
    "Ritual": "No",
@@ -5096,7 +5096,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Incendiary Cloud",
    "School": "Conjuration",
    "Ritual": "No",
@@ -5122,7 +5122,7 @@
    "Effect": "Vision"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Maze",
    "School": "Conjuration",
    "Ritual": "No",
@@ -5148,7 +5148,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Mind Blank",
    "School": "Abjuration",
    "Ritual": "No",
@@ -5174,7 +5174,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Power Word Stun",
    "School": "Enchantment",
    "Ritual": "No",
@@ -5200,7 +5200,7 @@
    "Effect": "Stunned"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Sunburst",
    "School": "Evocation",
    "Ritual": "No",
@@ -5226,7 +5226,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 8,
+   "Level": "8",
    "Name": "Telepathy",
    "School": "Evocation",
    "Ritual": "No",
@@ -5252,7 +5252,7 @@
    "Effect": "Communication"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Astral Projection",
    "School": "Necromancy",
    "Ritual": "No",
@@ -5278,7 +5278,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Foresight",
    "School": "Divination",
    "Ritual": "No",
@@ -5304,7 +5304,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Gate",
    "School": "Conjuration",
    "Ritual": "No",
@@ -5330,7 +5330,7 @@
    "Effect": "Teleportation"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Imprisonment",
    "School": "Abjuration",
    "Ritual": "No",
@@ -5356,7 +5356,7 @@
    "Effect": "Movement"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Meteor Swarm",
    "School": "Evocation",
    "Ritual": "No",
@@ -5382,7 +5382,7 @@
    "Effect": "No"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Power Word Kill",
    "School": "Enchantment",
    "Ritual": "No",
@@ -5408,7 +5408,7 @@
    "Effect": "No"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Prismatic Wall",
    "School": "Abjuration",
    "Ritual": "No",
@@ -5434,7 +5434,7 @@
    "Effect": "Multiple"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Shapechange",
    "School": "Transmutation",
    "Ritual": "No",
@@ -5460,7 +5460,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Time Stop",
    "School": "Transmutation",
    "Ritual": "No",
@@ -5486,7 +5486,7 @@
    "Effect": "Utility"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "True Polymorph",
    "School": "Transmutation",
    "Ritual": "No",
@@ -5512,7 +5512,7 @@
    "Effect": "Buff / De-Buff"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Weird",
    "School": "Illusion",
    "Ritual": "No",
@@ -5538,7 +5538,7 @@
    "Effect": "Frightened"
  },
  {
-   "Level": 9,
+   "Level": "9",
    "Name": "Wish",
    "School": "Conjuration",
    "Ritual": "No",
