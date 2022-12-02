@@ -1,9 +1,11 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Wizard {
     private String name;
     private int lvl;
-    private String[] spells;
+    private ArrayList<Spell> wizSpells = new ArrayList<Spell>();
+    private ArrayList<Spell> wizCantrips = new ArrayList<Spell>();
 
     public String getName(){
         return name;
@@ -17,14 +19,18 @@ public class Wizard {
     public void setLevel(int lvl){
         this.lvl = lvl;
     }
-    public void lvlUp(){
-        lvl = lvl +1;
+
+    public void addSpells() {
+        wizSpells.add(new Spell());
     }
-    public String[] getSpells(){
-        return spells;
+    public ArrayList<Spell> getSpells(){
+        return wizSpells;
     }
-    public void setSpells(String[] spells){
-        this.spells = spells;
+    public void addCantrips() {
+        wizCantrips.add(new Spell());
+    }
+    public ArrayList<Spell> getCantrips(){
+        return wizCantrips;
     }
 
     @Override
@@ -33,8 +39,8 @@ public class Wizard {
         sb.append("**********Your Wizard**********\n");
         sb.append("Name: " + getName()+ "\n");
         sb.append("Level: " + getLevel() + "\n");
-        sb.append("Spells: " + Arrays.toString(getSpells())+ "\n");
-        sb.append("\n*******************************");
+        //sb.append("Cantrips: " + Arrays.toString(getCantrips())+ "\n");
+        sb.append("*******************************");
 
         return sb.toString();
     }

@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.ListIterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,7 +14,18 @@ public class Main {
     {
         JSONParser parser = new JSONParser();
         List<Spell> userSpellList = new ArrayList<Spell>();
-        JSONObject masterList = (JSONObject) parser.parse(new FileReader("C:/Users/Joshua/IdeaProjects/SpellSelector/src/Final Final Spell Sheet - Keyed.json"));
+        List<Spell> userCantripList = new ArrayList<>();
+        List<Spell> canSpellList = new ArrayList<>();
+        List<Spell> oneSpellList = new ArrayList<>();
+        List<Spell> twoSpellList = new ArrayList<>();
+        List<Spell> threeSpellList = new ArrayList<>();
+        List<Spell> fourSpellList = new ArrayList<>();
+        List<Spell> fiveSpellList = new ArrayList<>();
+        List<Spell> sixSpellList = new ArrayList<>();
+        List<Spell> sevenSpellList = new ArrayList<>();
+        List<Spell> eightSpellList = new ArrayList<>();
+        List<Spell> nineSpellList = new ArrayList<>();
+        JSONObject masterList = (JSONObject) parser.parse(new FileReader("src/Final Final Spell Sheet - Keyed.json"));
         JSONArray canTrip = (JSONArray) masterList.get("0");
         JSONArray levelOne = (JSONArray)  masterList.get("1");
         JSONArray levelTwo = (JSONArray)  masterList.get("2");
@@ -30,7 +42,7 @@ public class Main {
             JSONObject spellInfo = (JSONObject) canTrip.get(index);
 
             Spell canSpells = new Spell();
-            canSpells.setLevel((String) spellInfo.get("Level"));
+            //canSpells.setLevel((String) spellInfo.get("Level"));
             canSpells.setName((String) spellInfo.get("Name"));
             canSpells.setSchool((String) spellInfo.get("School"));
             canSpells.setRitual((String) spellInfo.get("Ritual"));
@@ -55,7 +67,7 @@ public class Main {
             canSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             canSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(canSpells);
+            canSpellList.add(canSpells);
         }
         for(int index = 0; index < levelOne.size(); index++)
         {
@@ -87,7 +99,7 @@ public class Main {
             lvlOneSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlOneSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlOneSpells);
+            oneSpellList.add(lvlOneSpells);
         }
         for(int index = 0; index < levelTwo.size(); index++)
         {
@@ -119,7 +131,7 @@ public class Main {
             lvlTwoSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlTwoSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlTwoSpells);
+            twoSpellList.add(lvlTwoSpells);
         }
         for(int index = 0; index < levelThree.size(); index++)
         {
@@ -151,7 +163,7 @@ public class Main {
             lvlThreeSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlThreeSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlThreeSpells);
+            threeSpellList.add(lvlThreeSpells);
         }
         for(int index = 0; index < levelFour.size(); index++)
         {
@@ -183,7 +195,7 @@ public class Main {
             lvlFourSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlFourSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlFourSpells);
+            fourSpellList.add(lvlFourSpells);
         }
         for(int index = 0; index < levelFive.size(); index++)
         {
@@ -215,7 +227,7 @@ public class Main {
             lvlFiveSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlFiveSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlFiveSpells);
+            fiveSpellList.add(lvlFiveSpells);
         }
         for(int index = 0; index < levelSix.size(); index++)
         {
@@ -247,7 +259,7 @@ public class Main {
             lvlSixSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlSixSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlSixSpells);
+            sixSpellList.add(lvlSixSpells);
         }
         for(int index = 0; index < levelSeven.size(); index++)
         {
@@ -279,7 +291,7 @@ public class Main {
             lvlSevenSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlSevenSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlSevenSpells);
+            sevenSpellList.add(lvlSevenSpells);
         }
         for(int index = 0; index < levelEight.size(); index++)
         {
@@ -311,7 +323,7 @@ public class Main {
             lvlEightSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlEightSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlEightSpells);
+            eightSpellList.add(lvlEightSpells);
         }
         for(int index = 0; index < levelNine.size(); index++)
         {
@@ -343,8 +355,11 @@ public class Main {
             lvlNineSpells.setDmgType((String) spellInfo.get("Dmg Type"));
             lvlNineSpells.setEffect((String) spellInfo.get("Effect"));
 
-            userSpellList.add(lvlNineSpells);
+            nineSpellList.add(lvlNineSpells);
+
         }
+        //ListIterator<Spell> iterC = canSpellList.listIterator();
+        //ListIterator<Spell> iter1 = oneSpellList.listIterator();
         Scanner userInput = new Scanner (System.in);
         System.out.println("Enter a wizard name: ");
         String userName = userInput.nextLine();
@@ -353,15 +368,2552 @@ public class Main {
         Wizard wizard1 = new Wizard();
         wizard1.setName(userName);
         wizard1.setLevel(userLevel);
+        int maxcan = 0;
+        int maxspells = 0;
+        switch (userLevel){
+            case 1:
+                System.out.println("You are level 1." + "\n" + "You can choose 3 cantrips and 6 1st level spells.");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
 
-        for (Spell iterator : userSpellList){
+                for (Spell iterator : canSpellList){
+                    System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                    System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        //iterC.remove();
+                        maxcan++;
+                        if(maxcan >= 3){
+                            break;
+                    }
+                }
+                }
+                    System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                    System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        //iter1.remove();
+                        maxspells++;
+                        if(maxspells >= 6){
+                            break;
+                    }
+                }
+                }
+                break;
+            case 2:
+                System.out.println("You are level 2." + "\n" + "You can add up to 8 spells and 3 cantrips.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 3){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 8){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 3:
+                System.out.println("You are level 3." + "\n" + "You can add up to 10 spells and 3 cantrips." + "Second Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 3){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 10){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 10){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 4:
+                System.out.println("You are level 4." + "\n" + "You can add up to 4 cantrips and 12 spells." + "Second Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 12){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 12){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 5:
+                System.out.println("You are level 5." + "\n" + "You can add up to 14 spells and 4 cantrips." + "Third Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 14){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 14){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 14){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 6:
+                System.out.println("You are level 6." + "\n" + "You can up to 16 spells and 4 cantrips." + "Third Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 16){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 16){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 16){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 7:
+                System.out.println("You are level 7." + "\n" + "You can add up to 18 spells and 4 cantrips." + "Fourth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 18){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 18){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 18){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 18){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 8:
+                System.out.println("You are level 8." + "\n" + "You can add up to 20 spells and 4 cantrips." + "Fourth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 20){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 20){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 20){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 20){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 9:
+                System.out.println("You are level 9." + "\n" + "You can add up to 22 spells and 4 cantrips." + "Fifth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 4){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 22){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 22){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 22){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 22){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 22){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 10:
+                System.out.println("You are level 10." + "\n" + "You can add up to 24 spells and 5 cantrips." + "Fifth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 24){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 24){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 24){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 24){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 24){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 11:
+                System.out.println("You are level 11." + "\n" + "You can add up to 26 spells and 5 cantrips." + "Sixth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 26){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 12:
+                System.out.println("You are level 12." + "\n" + "You can add up to 28 spells and 5 cantrips." + "Sixth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 28){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 13:
+                System.out.println("You are level 13." + "\n" + "You can add up to 30 spells and 5 cantrips." + "Seventh Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 30){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 14:
+                System.out.println("You are level 14." + "\n" + "You can add up to 32 spells and 5 cantrips." + "Seventh Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 32){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 15:
+                System.out.println("You are level 15." + "\n" + "You can add up to 34 spells and 5 cantrips." + "Eighth Level Spells are now available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 34){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 16:
+                System.out.println("You are level 16." + "\n" + "You can add up to 36 spells and 5 cantrips." + "Eighth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 36){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 17:
+                System.out.println("You are level 17." + "\n" + "You can add up to 38 spells and 5 cantrips." + "Ninth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL NINE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : nineSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 38){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 18:
+                System.out.println("You are level 18." + "\n" + "You can add up to 40 spells and 5 cantrips." + "Ninth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL NINE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : nineSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 40){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 19:
+                System.out.println("You are level 19." + "\n" + "You can add up to 42 spells and 5 cantrips." + "Ninth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL NINE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : nineSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 42){
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 20:
+                System.out.println("You are level 20." + "\n" + "You can add up to 44 spells and 5 cantrips." + "Ninth Level Spells are available.");
+                System.out.println("\nCurrent number of cantrips known: " + maxcan + "\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****CANTRIP SPELLS*****\n");
+                for (Spell iterator : canSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addCantrips();
+                        maxcan++;
+                        if(maxcan >= 5){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                System.out.println("\n" + "*****LEVEL ONE SPELLS*****\n");
+                for (Spell iterator : oneSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL TWO SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : twoSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL THREE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : threeSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FOUR SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fourSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL FIVE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : fiveSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SIX SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sixSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL SEVEN SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : sevenSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL EIGHT SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : eightSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                System.out.println("\n" + "*****LEVEL NINE SPELLS*****\n");
+                System.out.println("\nCurrent number of spells known: " + maxspells + "\n");
+                for (Spell iterator : nineSpellList){
+                    System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                            "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                            "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                            iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                            "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                            "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n"
+                            + "Would you like to add this spell? (Y/N)");
+                    if(userInput.next().startsWith("y")){
+                        wizard1.addSpells();
+                        maxspells++;
+                        if(maxspells >= 44){
+                            break;
+                        }
+                    }
+                }
+                break;
+            default:
+                System.out.println("Invalid Input.");
+                break;
+
+        }
+        System.out.println(wizard1);
+        System.out.println("\n" + "Known Wizard Cantrips: ");
+        System.out.println(wizard1.getCantrips());
+        for (Spell iterator : wizard1.getCantrips()){
             System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
                     "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
                     "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
                     iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
                     "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
-            + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
-                    "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n\n");
+                    + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                    "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n");
+        }
+        System.out.println("\n" + "Known Wizard Spells: ");
+        System.out.println(wizard1.getSpells());
+        for (Spell iterator : wizard1.getSpells()){
+            System.out.println("Name: " + iterator.getName() + "\n" + "School: " + iterator.getSchool() + "\n" + "Ritual: " + iterator.getRitual() +
+                    "\n" + "Casting Time: " + iterator.getCastingTime() + "\n" + "Range: " + iterator.getRange() + "\n" + "Spell Size: " + iterator.getSpellSize() +
+                    "\n" + "Spell Shape: " + iterator.getShape() + "\n" + "Verbal? " + iterator.getVerbal() + "\n" + "Somatic? " + iterator.getSomatic() + "\n" + "Material? " + iterator.getMaterial() + "\n" + "Value: " +
+                    iterator.getValue() + "\n" + "Consumed? " + iterator.getConsumed() + "\n" + "Concentration: " + iterator.getConcentration() + "\n" + "Duration: " + iterator.getDuration() + "\n" +
+                    "Higher Level Bonus: " + iterator.getHigherLevels() + "\n" + "Higher Effect Bonus: " + iterator.getHigherEffect() + "\n"
+                    + "Attack: " + iterator.getAttack() + "\n" + "Saving Throw: " + iterator.getSave() + "\n" + "Fail Save: " + iterator.getSuck() + "\n" + "Skill Check: " + iterator.getCheck() +
+                    "\n" + "Dice: " + iterator.getDice() + "\n" + "Damage Type: " + iterator.getDmgType() + "\n" + "Effect: " + iterator.getEffect() + "\n");
         }
     }
 }
