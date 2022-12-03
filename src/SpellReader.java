@@ -1,11 +1,9 @@
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.io.IOException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 public class SpellReader{
     private final String filename;
     private final JSONParser parser;
@@ -25,6 +23,7 @@ public class SpellReader{
                 allSpells.add(new Spell(o));
             }
         } catch(Exception e){
+            //noinspection ThrowablePrintedToSystemOut
             System.out.println(e);
         }
     }
